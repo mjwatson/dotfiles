@@ -66,21 +66,32 @@ let g:slime_target = "tmux"
 
 " Better history / undo / redo
 Bundle "Gundo"
+nnoremap <F3> :GundoToggle<CR>
 
 " Insert snippets ala textmate.
-Bundle "msanders/snipmate.vim"
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 " Pretty powerline
 Bundle "Lokaltog/powerline"
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Syntax checking
 Bundle "scrooloose/syntastic"
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
 
 " Comments
 Bundle "tComment"
 
 " Tags
 Bundle "majutsushi/tagbar"
+nnoremap <F12> :TagbarToggle<CR>
+
+" Improve repeat (ie .) for other plugins
+Bundle "tpope/vim-repeat"
 
 " *********** Source control ******************
 
@@ -107,6 +118,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 
 " very nice file browser
 Bundle 'scrooloose/nerdtree'
+map <F5> :NERDTreeToggle<CR>
 
 " Fuzzy finding
 Bundle 'L9'
@@ -114,6 +126,14 @@ Bundle 'FuzzyFinder'
 
 " full path fuzzy search
 Bundle 'kien/ctrlp.vim'
+map <leader>d :CtrlP<CR> 
+map <ctrl-p> :CtrlP
+nnoremap <leader>f :CtrlPTag<cr>
+
+Bundle "tacahiroy/ctrlp-funky"
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fd :CtrlPFunky<Cr>
+nnoremap <Leader>df :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " *********** Basic file type support ******************
 
@@ -166,6 +186,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " Switch between .h and .cpp etc with :A
 " <leader>ih switches to file under cursor etc
 Bundle "a.vim"
+nnoremap <F4> :A<CR>
 
 " Automatically open, but do not go to (if there are errors) the quickfix /
 " location list window, or close it when is has become empty.
