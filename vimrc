@@ -40,6 +40,21 @@ set title
 inoremap jk <Esc>
 inoremap <ctrl-c> <Esc>
 
+" close buffer
+Bundle "bufkill.vim"
+nnoremap <leader>d :BD<CR> 
+
+" Bounce between buffers easily
+nnoremap <space> :b#<CR>
+
+" Save and exit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>w! :w!<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>q! :q!<CR>
+nnoremap <leader>x :x<CR>
+nnoremap <leader>x! :x!<CR>
+
 " *********** Whitespace **********************
 
 set tabstop=4
@@ -87,6 +102,7 @@ let g:syntastic_enable_signs=1
 Bundle "tComment"
 
 " Tags
+Bundle "AutoTag"
 Bundle "majutsushi/tagbar"
 nnoremap <F12> :TagbarToggle<CR>
 
@@ -126,7 +142,6 @@ Bundle 'FuzzyFinder'
 
 " full path fuzzy search
 Bundle 'kien/ctrlp.vim'
-map <leader>d :CtrlP<CR> 
 map <ctrl-p> :CtrlP
 nnoremap <leader>f :CtrlPTag<cr>
 
