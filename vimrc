@@ -106,6 +106,10 @@ Bundle "AutoTag"
 Bundle "majutsushi/tagbar"
 nnoremap <F12> :TagbarToggle<CR>
 
+" Marks
+" Bundle "ShowMarks"
+Bundle "kshenoy/vim-signature"
+
 " Improve repeat (ie .) for other plugins
 Bundle "tpope/vim-repeat"
 
