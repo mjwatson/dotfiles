@@ -164,6 +164,8 @@ Plugin 'https://github.com/avakhov/vim-yaml.git'
 
 " formatting for js
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 
 " HTML
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
