@@ -5,17 +5,17 @@ filetype off
 
 " *********** Vim package management **********
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 execute pathogen#infect()
 
 " Let vundle manage vundle updates
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " ***********   Basics   **********************
 
-Bundle 'tpope/vim-sensible'
+Plugin 'tpope/vim-sensible'
 
 syntax on
 filetype plugin indent on
@@ -41,7 +41,7 @@ inoremap jk <Esc>
 inoremap <ctrl-c> <Esc>
 
 " close buffer
-Bundle "bufkill.vim"
+Plugin 'bufkill.vim'
 nnoremap <leader>d :BD<CR> 
 
 " Bounce between buffers easily
@@ -63,8 +63,8 @@ set shiftwidth=4
 
 " *********** Appearance **********************
 
-Bundle 'Zenburn'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'Zenburn'
+Plugin 'altercation/vim-colors-solarized'
 
 " My preference
 set t_Co=256
@@ -80,76 +80,76 @@ let g:slime_target = "tmux"
 " *********** Useful install ******************
 
 " Better history / undo / redo
-Bundle "Gundo"
+Plugin 'Gundo'
 nnoremap <F3> :GundoToggle<CR>
 
 " Insert snippets ala textmate.
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " Pretty powerline
-Bundle "Lokaltog/powerline"
+Plugin 'Lokaltog/powerline'
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Syntax checking
-Bundle "scrooloose/syntastic"
+Plugin 'scrooloose/syntastic'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 
 " Comments
-Bundle "tComment"
+Plugin 'tComment'
 
 " Tags
-Bundle "AutoTag"
-Bundle "majutsushi/tagbar"
+Plugin 'AutoTag'
+Plugin 'majutsushi/tagbar'
 nnoremap <F12> :TagbarToggle<CR>
 
 " Marks
-" Bundle "ShowMarks"
-Bundle "kshenoy/vim-signature"
+" Plugin 'ShowMarks'
+Plugin 'kshenoy/vim-signature'
 
 " Improve repeat (ie .) for other plugins
-Bundle "tpope/vim-repeat"
+Plugin 'tpope/vim-repeat'
 
 " *********** Source control ******************
 
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " *********** Move around a file ******************
 
 " Fast moving around documents
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " A bunch of shortcuts
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " Managing surrounding brackets etc
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " *********** File searching etc ******************
 
 " Manage buffers better
-Bundle "bufexplorer.zip"
+Plugin 'bufexplorer.zip'
 
 " Search files under the current directory
-Bundle 'git://git.wincent.com/command-t.git'
+Plugin 'git://git.wincent.com/command-t.git'
 
 " very nice file browser
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 map <F5> :NERDTreeToggle<CR>
 
 " Fuzzy finding
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
 " full path fuzzy search
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 map <ctrl-p> :CtrlP
 nnoremap <leader>f :CtrlPTag<cr>
 
-Bundle "tacahiroy/ctrlp-funky"
+Plugin 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fd :CtrlPFunky<Cr>
 nnoremap <Leader>df :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -157,16 +157,16 @@ nnoremap <Leader>df :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 " *********** Basic file type support ******************
 
 " some markdown support
-Bundle 'https://github.com/plasticboy/vim-markdown.git'
+Plugin 'https://github.com/plasticboy/vim-markdown.git'
 
 " some yaml support
-Bundle 'https://github.com/avakhov/vim-yaml.git'
+Plugin 'https://github.com/avakhov/vim-yaml.git'
 
 " formatting for js
-Bundle "pangloss/vim-javascript"
+Plugin 'pangloss/vim-javascript'
 
 " HTML
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " *********** Assorted useful hacks *******************
 
@@ -193,22 +193,18 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-" *********** Clojure *************************
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 " ************ C++ *****************************
 
 " Switch between .h and .cpp etc with :A
 " <leader>ih switches to file under cursor etc
-Bundle "a.vim"
+Plugin 'a.vim'
 nnoremap <F4> :A<CR>
 
 " Automatically open, but do not go to (if there are errors) the quickfix /
 " location list window, or close it when is has become empty.
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+call vundle#end()
+filetype plugin indent on
 
